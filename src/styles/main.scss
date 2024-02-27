@@ -1,5 +1,81 @@
-$bgColor: rgb(0, 64, 255);
+@use 'variaveis';
+@use 'hero';
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Bold.woff2);
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 
 body {
-    background-color: $bgColor;
+    background-color: variaveis.$corDeFundo;
+    font-family: Avenir, sans-serif;
 }
+
+//vamos criar um mixin para padronizar que o line-height é sempre 10 px a mais que o font size
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    //vamos colocar a cor principal dentro do mixing tambem
+    color: variaveis.$corTextoPrincipal;
+}
+
+//vamos criar 3 classes para os 3 font sizes diferentes
+
+.text--big {
+    @include text(18px);
+}
+
+.text {
+    @include text; //fontsize vai ser 16px igual
+    // a condição de cima
+}
+
+.text--small {
+    @include text(12px);
+}
+
+.link-text { //para o link da index
+    @include text(18px);
+    color: variaveis.$corTextoSecundario;
+    text-decoration: underline;
+}
+
+
+//mixin para os titulos
+
+
+@mixin title($fonSize: 40px) {
+    @include text($fonSize);
+    color: variaveis.$corTextoSecundario;
+}
+
+
+.title--big {
+    @include title(44px);
+}
+
+.tile {
+    @include title;
+}
+
+.title--small {
+    @include title(28px);
+}
+
+
+
