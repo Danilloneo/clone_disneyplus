@@ -1,6 +1,7 @@
 .plans {
     padding: 5.6vw;
     margin-top: 24px;
+    
     h2 {
         text-align: center;
     }
@@ -9,6 +10,14 @@
         display: flex;
         justify-content: space-around; //distribua a margem padrao entre os elementos
         margin-top: 50px;
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+
+        .button {
+            margin-top: 24px;
+        }
 
         &__item {
             //padding: 60px 44px 44px; //não coloquei padding
@@ -34,8 +43,8 @@
                 }
 
 
-            } 
-    }
+                } 
+            }
 
     p {
         text-align: center;
@@ -48,5 +57,5 @@
         align-items: center;
         width: 350px;
         margin: 0 auto;
+        }  
     }
-}
